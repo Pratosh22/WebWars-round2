@@ -4,7 +4,12 @@ const result = document.querySelector(".results");
 let limit = document.querySelector(".limit");
 //get the value of the input
 btn.addEventListener("click", function () {
+  
   const inputValue = input.value;
+  if(inputValue == ""){
+    alert("Please enter a recipe name");
+    return;
+  }
   document.querySelector(".error").innerHTML = "";
   newlimit = limit.value;
   if (newlimit == "") {
