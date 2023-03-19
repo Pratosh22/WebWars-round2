@@ -62,7 +62,6 @@ button:hover{
 .container{
     margin-top: 6rem;
     background-color: #EDE9D5;
-    padding: 4rem;
     padding-top:0;
     display:flex;
     flex-direction:column;
@@ -91,6 +90,7 @@ figure{
 .results{
     list-style: none;
     margin-bottom: 2rem;
+    height: 100%;
 }
 .preview-link{
     display:flex;
@@ -102,12 +102,9 @@ figure{
     display:flex;
     flex-direction:column;
     place-items: center;
-    margin: 1rem;
-    padding: 0;
     width: 100%;
     min-width: 300px;
-    border-radius: 0.5rem;
-    padding: 1rem;
+    border-radius: 0;
 }
 .wrap{
     display:flex;
@@ -123,3 +120,13 @@ figure{
     border-radius: 0.5rem;
     padding: 1rem;
 }
+.instructions{
+    display:flex;
+    flex-direction:column;
+    place-items: center;
+    padding: 1rem;
+}
+.instructions-list{
+   width:100%;
+}
+

@@ -1,19 +1,29 @@
 const btn = document.querySelector("button");
 const input = document.querySelector("input");
 const result = document.querySelector(".results");
+let limit = document.querySelector(".limit");
 //get the value of the input
-let preview;
 btn.addEventListener("click", function () {
   const inputValue = input.value;
+  document.querySelector(".error").innerHTML = "";
+  newlimit = limit.value;
+  if (newlimit == "") {
+    newlimit = 5;
+  }
+
   fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?query=${inputValue}&number=5&apiKey=73d123b0948a42468cfc5cfba1dce24b `
+    `https://api.spoonacular.com/recipes/complexSearch?query=${inputValue}&number=${newlimit}&apiKey=194a19ca1baa4345a26710e6cc233a66 `
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      if (data.results.length == 0) {
+        document.querySelector(
+          ".error"
+        ).innerHTML = `<h2>Sorry, no results found for '${inputValue}'</h2>`;
+      }
       result.innerHTML = result.innerHTML = data.results.map((item) => {
         return `      
-        <li class="preview" onClick="handleClick" data-id=${item.id}>
+        <li class="preview" onClick="handleClick(${item.id})" data-id=${item.id}>
         <div class="preview-link" data-id=${item.id}>
             <figure class="preview-fig">
                 <img src="${item.image}"
@@ -26,13 +36,14 @@ btn.addEventListener("click", function () {
     </li>`;
       });
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      document.querySelector(
+        ".error"
+      ).innerHTML = `<h2>Sorry, no results found for '${inputValue}'</h2>`;
+    });
 });
 
-const handleClick = () => {
-  console.log("clicked");
-  console.log("clicked");
-  const id = e.target.dataset.id;
+const handleClick = (id) => {
   fetch(
     `https://api.spoonacular.com/recipes/${id}/information?apiKey=d1ea3622ae844fd49ef113c2f15e0ef8` //stepsToMake
   )
@@ -55,10 +66,17 @@ const handleClick = () => {
                     <div class="recipe_quantity">${item.amount}</div>
                     <div class="description"><p>${item.name}</p></div>
                 </div>
+                </div>
             </li>`;
                   })
                   .join("")}
             </ul>`;
+      document.querySelector(
+        ".instructions-list"
+      ).innerHTML = `<h3>Steps to make</h3>
+      ${data.analyzedInstructions[0].steps.map(
+        (step) => `<li style="list-style-type:disc">${step.step}</li>`
+      )}`;
     })
     .catch((error) => console.error(error));
 };

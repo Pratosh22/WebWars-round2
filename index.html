@@ -13,13 +13,16 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Recipe Roundup</h1>
+            <h1><img src="https://cdn-icons-png.flaticon.com/512/3565/3565418.png" alt="" width="30px" style="margin-right: 5px;">Flavor Finder</h1>
         </div>
+
         <div class="search">
             <input type="text" id="search" autocomplete="false" placeholder="Search for a recipe...">
+            <input type="number" class="limit" min="1" placeholder="enter no of results " style="min-width: 50px">
             <button id="search-btn"><i class="fa-solid fa-lg fa-magnifying-glass"
                     style="margin-right:px;"></i>Search</button>
         </div>
+        <h1 class="error"></h1>
         <div class="recipes">
             <div class="search-options">
                 <ul class="results">
@@ -27,40 +30,19 @@
             </div>
             <div class="recipe">
                 <div class="recipe-img">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                        width="300px" alt="">
+                    
                 </div>
                 <div class="recipe-details">
-                    <h2>Recipe Name</h2>
-                    <p>Recipe Description</p>
+                   
                 </div>
                 <div class="ing">
-                    <h3>Recipe Ingredient</h3>
+                    
                     <ul class="wrap">
-                        <li class="recipe-ingredient">
-                            <div>
-                                <div class="recipe_quantity">100</div>
-                                <div class="description"><p>HELLO</p></div>
-                            </div>
-                        </li>
-                        <li class="recipe-ingredient">
-                            <div>
-                                <div class="recipe_quantity">100</div>
-                                <div class="description"><p>Hi</p></div>
-                            </div>
-                        </li>
-                        <li class="recipe-ingredient">
-                            <div>
-                                <div class="recipe_quantity">100</div>
-                                <div class="description"><p>hi</p></div>
-                            </div>
-                        </li>
-                        <li class="recipe-ingredient">
-                            <div>
-                                <div class="recipe_quantity">100</div>
-                                <div class="description"><p>hi</p></div>
-                            </div>
-                        </li>
+                       
+                    </ul>
+                </div>
+                <div class="instructions">
+                    <ul class="instructions-list">
                     </ul>
                 </div>
             </div>
